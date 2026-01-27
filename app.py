@@ -15,7 +15,7 @@ def predict():
     text = data.get("text", "")
 
     # Length check (VERY IMPORTANT)
-    if len(text.split()) < 30:
+   if len(text.split()) < 20:
         return jsonify({
             "result": "Input too short for reliable prediction",
             "confidence": 0
@@ -31,3 +31,4 @@ def predict():
 
 if __name__ == "__main__":
     app.run()
+
