@@ -10,6 +10,11 @@ CORS(app)  # allow browser access
 model = joblib.load("fake_news_model.pkl")
 
 
+@app.route("/", methods=["GET"])
+def home():
+    return "Fake News Backend Running", 200
+
+
 @app.route("/health", methods=["GET"])
 def health():
     return "OK", 200
