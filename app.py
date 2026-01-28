@@ -9,6 +9,12 @@ CORS(app)  # allow browser access
 # Load trained model
 model = joblib.load("fake_news_model.pkl")
 
+
+@app.route("/health", methods=["GET"])
+def health():
+    return "OK", 200
+
+
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.get_json()
@@ -29,7 +35,6 @@ def predict():
         "confidence": round(confidence * 100, 2)
     })
 
+
 if __name__ == "__main__":
     app.run()
-
-
